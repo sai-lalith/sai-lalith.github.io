@@ -1,0 +1,115 @@
+:root {
+    --primary-light: #20B2AA;
+    --text-light: #333333;
+    --bg-light: #ffffff;
+    --primary-dark: #9370DB;
+    --text-dark: #ffffff;
+    --bg-dark: #1a1a1a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    padding: 2rem;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: var(--primary-light);
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.poem {
+    margin: 2rem 0;
+    padding: 1rem;
+    border-left: 4px solid var(--primary-light);
+    background-color: rgba(32, 178, 170, 0.1);
+}
+
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+a:hover {
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.nav-links {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--primary-light);
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Dark theme */
+body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.dark-theme h1,
+.dark-theme h3 {
+    color: var(--primary-dark);
+}
+
+.dark-theme a {
+    color: var(--primary-dark);
+}
+
+.dark-theme a:hover {
+    border-bottom: 2px solid var(--primary-dark);
+}
+
+.dark-theme .nav-links {
+    border-top: 1px solid var(--primary-dark);
+}
+
+.dark-theme .theme-toggle {
+    background: var(--primary-dark);
+}
+
+.dark-theme .poem {
+    border-left-color: var(--primary-dark);
+    background-color: rgba(147, 112, 219, 0.1);
+} 
