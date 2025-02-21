@@ -1,10 +1,10 @@
 header {
-    background-color: #3663a6;
+    background-color: transparent; /* Add color if you want a black streak*/
 }
 
-#scroller {
+/*#scroller {
     background-color: #37b0bd;
-}
+}*/
 
 body {
     background-color: #ffffff;

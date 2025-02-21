@@ -1,10 +1,15 @@
 header {
-    background-color: tertiary-color-placeholder;
+    background-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    position: sticky;
+    top: 0;
+    height: 0;
 }
 
-#scroller {
+/*#scroller {
     background-color: quaternary-color-placeholder;
-}
+}*/
 
 body {
     background-color: secondary-color-placeholder;
@@ -30,9 +35,9 @@ a:hover {
     border-bottom-width: divider-width-placeholder;
 }
 
-h2 {
+/*h2 {
     border-bottom: 1px primary-color-placeholder dashed;
-}
+}*/
 
 .paper-icon {
     display: None;

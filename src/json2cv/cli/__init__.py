@@ -197,7 +197,7 @@ def json2cv(data, output, templates, verbosity, cv):
         else:
             button = ""
 
-        out = '<div></div>\n%s' % button
+        out = '%s' % button
         out += f'<script>{mode_js}</script>\n' if has_dark else ""
         out = f"<header>{out}</header>\n"
         return out
@@ -410,6 +410,21 @@ def json2cv(data, output, templates, verbosity, cv):
 
     def build_profile(profile: Dict[str, str]):
         profile_html = '<div class="profile">\n'
+        profile_html += '<div class="title"><h1>%s</h1></div>\n' % meta_json["name"]
+
+        profile_html += '<div class="links"><h2>'
+        if "cv" in profile and profile["cv"] != "":
+            profile_html += "<a href='" + profile["cv"] + "'>CV" + "</a>" + " | "
+        if "gscholar" in profile and profile["gscholar"] != "":
+            profile_html += "<a href='" + profile["gscholar"] + "'>Google Scholar" + "</a>" + " | "
+        if "github" in profile and profile["github"] != "":
+            profile_html += "<a href='" + profile["github"] + "'>Github" + "</a>" + " | "
+        if "email" in profile and profile["cv"] != "":
+            profile_html += "<a href='mailto:" + profile["email"] + "'>akasailalith@gmail.com" + "</a>"
+        profile_html += "</h2></div>\n"
+
+        profile_html += "<hr class=\"header-line\">\n"
+
         profile_html += (
             '<img class="headshot" src="%s" alt="Headshot"/>\n' % profile["headshot"]
         )
