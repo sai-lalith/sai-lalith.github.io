@@ -62,7 +62,6 @@ body {
     -ms-text-size-adjust: none;
 }
 
-
 .content {
     min-height: calc(100vh - 4em);
     margin-left: auto;
@@ -151,6 +150,10 @@ a {
     font-size: xx-large;
     text-align: center;
     margin-bottom: 0.1em;
+}
+
+.links {
+    text-align: center;
 }
 
 .links h2 {
