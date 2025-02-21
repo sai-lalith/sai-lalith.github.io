@@ -197,8 +197,7 @@ def json2cv(data, output, templates, verbosity, cv):
         else:
             button = ""
 
-        out = '<div id="scroller"></div>\n%s' % button
-        out += f'<script>{scroller_js}</script>\n'
+        out = '<div></div>\n%s' % button
         out += f'<script>{mode_js}</script>\n' if has_dark else ""
         out = f"<header>{out}</header>\n"
         return out
@@ -266,7 +265,7 @@ def json2cv(data, output, templates, verbosity, cv):
         return False
 
 
-    def build_authors(authors, mentoring_json: List[Dict[str, str]]):
+    def build_authors(authors):
         item = ""
 
         authors_split = []
@@ -284,9 +283,6 @@ def json2cv(data, output, templates, verbosity, cv):
                 entry = '<a href="%s">%s</a>' % (auto_links_json[name], entry)
             else:
                 status(f"-- {name} is not in auto_links.json", 3)
-            if name in [e["name"] for e in mentoring_json]:
-                entry = f"<span class=\"mentee\">{entry}</span>"
-
             authors_split.append(entry)
 
         for i in range(len(authors_split)):
@@ -343,7 +339,7 @@ def json2cv(data, output, templates, verbosity, cv):
         return item
 
 
-    def build_pubs_inner(pubs, mentoring_json: List[Dict[str, str]], title: str, full: bool):
+    def build_pubs_inner(pubs, title: str, full: bool):
         if title == "":
             return ""
 
@@ -365,7 +361,7 @@ def json2cv(data, output, templates, verbosity, cv):
 
                 paper_map = {
                     "paper-title": paper_title,
-                    "paper-authors": build_authors(p.persons['author'], mentoring_json),
+                    "paper-authors": build_authors(p.persons['author']),
                     "paper-conference": paper_conference,
                     "paper-icons": build_icons(p),
                 }
@@ -377,7 +373,7 @@ def json2cv(data, output, templates, verbosity, cv):
         return pubs_html
 
 
-    def build_pubs(pubs, mentoring_json: List[Dict[str, str]], full: bool):
+    def build_pubs(pubs, full: bool):
         if len(pubs.entries) == 0:
             return ""
 
@@ -386,7 +382,7 @@ def json2cv(data, output, templates, verbosity, cv):
         pubs_html = '<div class="section">\n'
 
         if some_not_selected(pubs) and not full:
-            pubs_html += '<h1>Selected Publications <span class="more">(<a href="./pubs.html">see all</a>)</span></h1>'
+            pubs_html += '<h1>Papers <span class="more"></span></h1>'
         elif full:
             link = '<a href="./index.html">%s</a>' % meta_json["name"]
             pubs_html += (
@@ -398,14 +394,13 @@ def json2cv(data, output, templates, verbosity, cv):
         
 
         pubs_html += '<div class="hbar"></div>\n'
-        pubs_html += '<span class="legend">(undergraduate mentees underlined)</span>\n'
         pubs_html += '<div id="publications">\n'
 
         titles = get_pub_titles(pubs, full)
 
         for i in range(len(titles)):
             title = titles[i]
-            pubs_html += build_pubs_inner(pubs, mentoring_json, title, full)
+            pubs_html += build_pubs_inner(pubs, title, full)
 
         pubs_html += "</div>\n"  # close pubs
         pubs_html += "</div>\n"  # close section
@@ -496,7 +491,6 @@ def json2cv(data, output, templates, verbosity, cv):
         profile_json: Dict[str, str],
         news_json: List[Dict[str, str]],
         pubs_bibtex,
-        mentoring_json: List[Dict[str, str]],
         links: Dict[str, str],
         notes: Dict[str, str],
         has_dark: bool,
@@ -506,7 +500,7 @@ def json2cv(data, output, templates, verbosity, cv):
         body_html += '<div class="content">\n'
         body_html += build_profile(profile_json)
         body_html += build_news(news_json, 5, False)
-        body_html += build_pubs(pubs_bibtex, mentoring_json, False)
+        body_html += build_pubs(pubs_bibtex, False)
         body_html += "</div>\n"
         body_html += footer_html
         body_html += "</body>\n"
@@ -550,12 +544,11 @@ def json2cv(data, output, templates, verbosity, cv):
 
     def build_pubs_page(
         pubs_bibtex,
-        mentoring_json: List[Dict[str, str]],
         links: Dict[str, str],
         notes: Dict[str, str],
         has_dark: bool,
     ):
-        content = build_pubs(pubs_bibtex, mentoring_json, True)
+        content = build_pubs(pubs_bibtex, True)
 
         if content == "":
             return ""
@@ -705,13 +698,6 @@ def json2cv(data, output, templates, verbosity, cv):
         f"The dates in {data}/news.json are not in order.",
     )
 
-    mentoring_json = read_data("mentoring.json", optional=True)
-    for mentoring in mentoring_json:
-        fail_if_not(
-            "name" in mentoring,
-            f'Must include a "name" field for each mentoring in {data}/mentoring.json!',
-        )
-
     pubs_bibtex = parse_file(f"{data}/publications.bib") if os.path.exists(f"{data}/publications.bib") else []
     for pub in pubs_bibtex.entries.values():
         fail_if_not(
@@ -781,7 +767,6 @@ def json2cv(data, output, templates, verbosity, cv):
     paper_html = read_template("paper.html", optional=False)
     news_item_html = read_template("news-item.html", optional=False)
     mode_js = read_template("mode.js", optional=False)
-    scroller_js = read_template("scroller.js", optional=False)
 
     if is_federicos(meta_json["name"]):
         footer_html = """\n<footer>\n<p>Feel free to <a href="https://github.com/FedericoAureliano/FedericoAureliano.github.io">use this website template</a>.</p>\n</footer>\n"""
@@ -795,8 +780,8 @@ def json2cv(data, output, templates, verbosity, cv):
     if has_dark:
         dark_css = replace_placeholders(dark_css, style_json["dark"])
     news_page = build_news_page(news_json, auto_links_json, auto_notes_json, has_dark)
-    pubs_page = build_pubs_page(pubs_bibtex, mentoring_json, auto_links_json, auto_notes_json, has_dark)
-    index_page = build_index(profile_json, news_json, pubs_bibtex, mentoring_json, auto_links_json, auto_notes_json, has_dark)
+    pubs_page = build_pubs_page(pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
+    index_page = build_index(profile_json, news_json, pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
 
     # Write to files
     status("\nWriting website:")

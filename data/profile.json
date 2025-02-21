@@ -1,7 +1,6 @@
 {
-    "headshot" : "images/federico.jpg",
-    "about"    : "My name is Federico Mora Rocha. I am a Ph.D. student in computer science at the University of California, Berkeley, where I am advised by Sanjit A. Seshia. Before Berkeley, I completed an M.Sc. in computer science at the University of Toronto, where I  was advised by Marsha Chechik. Before Toronto, I completed a B.Sc. in computer science and mathematics at Mount Allison University.",
-    "research" : "My primary areas of expertise are <a href=\"https://en.wikipedia.org/wiki/Automated_reasoning\">automated reasoning</a>, formal methods, and programming language theory.",
-    "contact": "",
-    "announcement": "I am on the job market this year! Here is my CV (<a href=\"https://federico.morarocha.ca/cv/cv.pdf\">pdf</a>), research statement (<a href=\"https://federico.morarocha.ca/job-market/research.pdf\">pdf</a>, <a href=\"https://federico.morarocha.ca/job-market/research.html\">html</a>), teaching statement (<a href=\"https://federico.morarocha.ca/job-market/teaching.pdf\">pdf</a>, <a href=\"https://federico.morarocha.ca/job-market/teaching.html\">html</a>), Google Scholar profile (<a href=\"https://scholar.google.com/citations?user=mm91pq0AAAAJ&hl\">html</a>), and DBLP profile (<a href=\"https://dblp.org/pid/82/5093-2.html\">html</a>). You can reach me at fmora@cs.berkeley.edu."
+    "headshot" : "images/lalith.png",
+    "name"     : "Aka Sai Lalith Kumar (Sunny)",
+    "about"    : "I am an upcoming Ph.D. student in computer science department at the University of Colorado, Boulder, where I will be advised by Dr. Gowtham Kaki. Currently, I am a consultant with <a href=\"https://www.microsoft.com/en-in/microsoft-cloud/solutions/industry\">Industry Solutions, Microsoft</a> overseeing enterprise security. Before Microsoft, I completed my bachelor's in ECE at Shiv Nadar University, where I worked under <a href=\"https://cse.snu.edu.in/people/faculty/dr-sweta-mishra\">Dr. Sweta Mishra</a>.",
+    "research" : "My intrests are <a href=\"https://en.wikipedia.org/wiki/Cryptography\">cryptography</a>, formal methods, and verification."
 }

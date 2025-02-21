@@ -13,11 +13,11 @@
     },
 
     "dark": {
-        "primary-color": "#fffafc",
-        "secondary-color": "#202a3c",
-        "tertiary-color": "#47a2eb",
-        "quaternary-color": "#f02405",
-        "divider-width": "1px",
+        "primary-color": "#EEEEEE",
+        "secondary-color": "#000000",
+        "tertiary-color": "#00A598",
+        "quaternary-color": "#3B7EA1",
+        "divider-width": "2px",
         "underline-width": "2px",
         "paper-img": "images/paper-dark.png",
         "extra-img": "images/extra-dark.png",

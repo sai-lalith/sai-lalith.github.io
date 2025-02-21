@@ -1,37 +1,37 @@
 header {
-    background-color: #47a2eb;
+    background-color: #00A598;
 }
 
 #scroller {
-    background-color: #f02405;
+    background-color: #3B7EA1;
 }
 
 body {
-    background-color: #202a3c;
-    color: #fffafc;
+    background-color: #000000;
+    color: #EEEEEE;
 }
 
 h1,
 h2,
 h3 {
-    color: #fffafc;
+    color: #EEEEEE;
 }
 
 a {
-    color: #47a2eb;
+    color: #00A598;
 }
 
 a:hover {
-    color: #f02405;
+    color: #3B7EA1;
 }
 
 .hbar {
-    color: #fffafc;
-    border-bottom-width: 1px;
+    color: #EEEEEE;
+    border-bottom-width: 2px;
 }
 
 h2 {
-    border-bottom: 1px #fffafc dashed;
+    border-bottom: 1px #EEEEEE dashed;
 }
 
 .paper-icon {
@@ -39,14 +39,14 @@ h2 {
 }
 
 .headshot {
-    border: 1px solid #202a3c;
+    border: 1px solid #000000;
 }
 
 .announcement {
-    border: 2px solid #fffafc;
+    border: 2px solid #EEEEEE;
 }
 
 .mentee {
-    text-decoration-color: #f02405;
+    text-decoration-color: #3B7EA1;
     text-decoration-thickness: 2px;
 }
