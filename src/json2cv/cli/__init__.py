@@ -186,23 +186,6 @@ def json2cv(data, output, templates, verbosity, cv):
 
     # Define functions for website pieces
 
-
-    def header(has_dark):
-        if has_dark:
-            button = f"""<label class="switch-mode">
-    <input type="checkbox" id="mode">
-    <span class="slider round"></span>
-</label>
-"""
-        else:
-            button = ""
-
-        out = '%s' % button
-        out += f'<script>{mode_js}</script>\n' if has_dark else ""
-        out = f"<header>{out}</header>\n"
-        return out
-
-
     def build_news(news: List[Dict[str, str]], count: int, standalone: bool):
         if count > len(news):
             count = len(news)
@@ -307,32 +290,32 @@ def json2cv(data, output, templates, verbosity, cv):
         item += (
             '<a href="'
             + p.fields["build_link"]
-            + '" alt="[PDF] "><img class="paper-icon" src="%s"/><img class="paper-icon-dark" src="%s"/></a>'
-            % (style_json["light"]["paper-img"], style_json["dark"]["paper-img"])
+            + '" alt="[PDF] "><img class="paper-icon-dark" src="%s"/></a>'
+            % (style_json["dark"]["paper-img"])
             if p.fields["build_link"]
             else ""
         )
         item += (
             '<a href="'
             + p.fields["build_extra"]
-            + '" alt="[Extra] "><img class="paper-icon" src="%s"/><img class="paper-icon-dark" src="%s"/></a>'
-            % (style_json["light"]["extra-img"], style_json["dark"]["extra-img"])
+            + '" alt="[Extra] "><img class="paper-icon-dark" src="%s"/></a>'
+            % (style_json["dark"]["extra-img"])
             if p.fields["build_extra"]
             else ""
         )
         item += (
             '<a href="'
             + p.fields["build_slides"]
-            + '" alt="[Slides] "><img class="paper-icon" src="%s"/><img class="paper-icon-dark" src="%s"/></a>'
-            % (style_json["light"]["slides-img"], style_json["dark"]["slides-img"])
+            + '" alt="[Slides] "><img class="paper-icon-dark" src="%s"/></a>'
+            % ( style_json["dark"]["slides-img"])
             if p.fields["build_slides"]
             else ""
         )
         item += (
             '<a href="'
             + p.fields["build_bibtex"]
-            + '" alt="[Bibtex] "><img class="paper-icon" src="%s"/><img class="paper-icon-dark" src="%s"/></a>'
-            % (style_json["light"]["bibtex-img"], style_json["dark"]["bibtex-img"])
+            + '" alt="[Bibtex] "><img class="paper-icon-dark" src="%s"/></a>'
+            % (style_json["dark"]["bibtex-img"])
             if p.fields["build_bibtex"]
             else ""
         )
@@ -418,7 +401,7 @@ def json2cv(data, output, templates, verbosity, cv):
         if "gscholar" in profile and profile["gscholar"] != "":
             profile_html += "<a href='" + profile["gscholar"] + "'>Google Scholar" + "</a>" + " | "
         if "github" in profile and profile["github"] != "":
-            profile_html += "<a href='" + profile["github"] + "'>Github" + "</a>" + " | "
+            profile_html += "<a href='" + profile["github"] + "'>GitHub" + "</a>" + " | "
         if "email" in profile and profile["cv"] != "":
             profile_html += "<a href='mailto:" + profile["email"] + "'>akasailalith@gmail.com" + "</a>"
         profile_html += "</h2></div>\n"
@@ -508,10 +491,8 @@ def json2cv(data, output, templates, verbosity, cv):
         pubs_bibtex,
         links: Dict[str, str],
         notes: Dict[str, str],
-        has_dark: bool,
     ):
         body_html = "<body>\n"
-        body_html += header(has_dark)
         body_html += '<div class="content">\n'
         body_html += build_profile(profile_json)
         body_html += build_news(news_json, 5, False)
@@ -533,7 +514,6 @@ def json2cv(data, output, templates, verbosity, cv):
         news_json: List[Dict[str, str]],
         links: Dict[str, str],
         notes: Dict[str, str],
-        has_dark: bool,
     ):
         content = build_news(news_json, len(news_json), True)
 
@@ -541,7 +521,6 @@ def json2cv(data, output, templates, verbosity, cv):
             return ""
 
         body_html = "<body>\n"
-        body_html += header(has_dark)
         body_html += '<div class="content">\n'
         body_html += content
         body_html += "</div>\n"
@@ -561,7 +540,6 @@ def json2cv(data, output, templates, verbosity, cv):
         pubs_bibtex,
         links: Dict[str, str],
         notes: Dict[str, str],
-        has_dark: bool,
     ):
         content = build_pubs(pubs_bibtex, True)
 
@@ -569,7 +547,6 @@ def json2cv(data, output, templates, verbosity, cv):
             return ""
 
         body_html = "<body>\n"
-        body_html += header(has_dark)
         body_html += '<div class="content">\n'
         body_html += content
         body_html += "</div>\n"
@@ -640,15 +617,11 @@ def json2cv(data, output, templates, verbosity, cv):
 
     style_json = read_data("style.json", optional=False)
 
-    # must have a "light" theme
+    # must have a "dark" theme
     fail_if_not(
-        "light" in style_json, f'Must include a "light" theme in {data}/style.json!'
+        "dark" in style_json, f'Must include a "dark" theme in {data}/style.json!'
     )
-    has_dark = "dark" in style_json
 
-    # if there is no dark theme, then the light theme will be used for both
-    if not has_dark:
-        style_json["dark"] = style_json["light"]
 
     # for each key in style_json, check its format
     for key in style_json:
@@ -774,9 +747,7 @@ def json2cv(data, output, templates, verbosity, cv):
     # Load templates
     status("\nLoading template files:")
     main_css = read_template("main.css", optional=False)
-    light_css = read_template("light.css", optional=False)
     dark_css = read_template("dark.css", optional=True)
-    dark_css = light_css if dark_css == "" else dark_css
     head_html = read_template("head.html", optional=False)
     footer_html = read_template("footer.html", optional=False)
     paper_html = read_template("paper.html", optional=False)
@@ -791,12 +762,10 @@ def json2cv(data, output, templates, verbosity, cv):
     # Create HTML and CSS
     head_html = replace_placeholders(head_html, meta_json)
     footer_html = replace_placeholders(footer_html, meta_json)
-    light_css = replace_placeholders(light_css, style_json["light"])
-    if has_dark:
-        dark_css = replace_placeholders(dark_css, style_json["dark"])
-    news_page = build_news_page(news_json, auto_links_json, auto_notes_json, has_dark)
-    pubs_page = build_pubs_page(pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
-    index_page = build_index(profile_json, news_json, pubs_bibtex, auto_links_json, auto_notes_json, has_dark)
+    dark_css = replace_placeholders(dark_css, style_json["dark"])
+    news_page = build_news_page(news_json, auto_links_json, auto_notes_json)
+    pubs_page = build_pubs_page(pubs_bibtex, auto_links_json, auto_notes_json)
+    index_page = build_index(profile_json, news_json, pubs_bibtex, auto_links_json, auto_notes_json)
 
     # Write to files
     status("\nWriting website:")
@@ -804,7 +773,6 @@ def json2cv(data, output, templates, verbosity, cv):
     write_file("news.html", news_page)
     write_file("pubs.html", pubs_page)
     write_file("main.css", main_css)
-    write_file("light.css", light_css)
     write_file("dark.css", dark_css)
 
     # Got to here means everything went well

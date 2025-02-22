@@ -8,33 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="light.css" id="theme-link">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
     <link rel="shortcut icon" type="image/png" href="./images/favicon.svg" />
     
 </head>
 
 <body>
-<header><label class="switch-mode">
-    <input type="checkbox" id="mode">
-    <span class="slider round"></span>
-</label>
-<script>const btn = document.querySelector(".switch-mode");
-const theme = document.querySelector("#theme-link");
-
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    theme.href = "dark.css";
-    document.getElementById("mode").checked = true;
-}
-
-btn.addEventListener("change", function() {
-  // Swap out the URL for the different stylesheets
-  if (document.getElementById("mode").checked) {
-    theme.href = "dark.css";
-  } else {
-    theme.href = "light.css";
-  }
-});</script>
-</header>
 <div class="content">
 <div class="section">
 <h1>News <span class="more"><a href="./index.html">Aka Sai Lalith Kumar</a></span></h1>
@@ -45,7 +24,14 @@ btn.addEventListener("change", function() {
 02/2025
 </div>
 <div class="news-right">
-I will be joining <a href="https://plv.colorado.edu/">CUPLV</a> as a Phd student in comming Fall!
+I will be joining <a href="https://plv.colorado.edu/">CUPLV</a> as a PhD student in the comming Fall!
+</div>
+</div><div class="news-item">
+<div class="news-left">
+06/2024
+</div>
+<div class="news-right">
+Our paper has been accepted into <a href="https://ieee-cybermatics.org/2024/blockchain/index.php">Blockchain 2024</a>!
 </div>
 </div></div>
 </div>

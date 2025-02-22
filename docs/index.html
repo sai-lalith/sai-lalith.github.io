@@ -8,37 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="light.css" id="theme-link">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
     <link rel="shortcut icon" type="image/png" href="./images/favicon.svg" />
     
 </head>
 
 <body>
-<header><label class="switch-mode">
-    <input type="checkbox" id="mode">
-    <span class="slider round"></span>
-</label>
-<script>const btn = document.querySelector(".switch-mode");
-const theme = document.querySelector("#theme-link");
-
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    theme.href = "dark.css";
-    document.getElementById("mode").checked = true;
-}
-
-btn.addEventListener("change", function() {
-  // Swap out the URL for the different stylesheets
-  if (document.getElementById("mode").checked) {
-    theme.href = "dark.css";
-  } else {
-    theme.href = "light.css";
-  }
-});</script>
-</header>
 <div class="content">
 <div class="profile">
 <div class="title"><h1>Aka Sai Lalith Kumar</h1></div>
-<div class="links"><h2><a href='cv/cv.pdf'>CV</a> | <a href='https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=6OYTBRwAAAAJ'>Google Scholar</a> | <a href='https://github.com/sai-lalith'>Github</a> | <a href='mailto:akasailalith@gmail.com'>akasailalith@gmail.com</a></h2></div>
+<div class="links"><h2><a href='cv/cv.pdf'>CV</a> | <a href='https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=6OYTBRwAAAAJ'>Google Scholar</a> | <a href='https://github.com/sai-lalith'>GitHub</a> | <a href='mailto:akasailalith@gmail.com'>akasailalith@gmail.com</a></h2></div>
 <hr class="header-line">
 <img class="headshot" src="images/lalith.png" alt="Headshot"/>
 <p>I am an upcoming Ph.D. student in computer science department at the University of Colorado, Boulder, where I will be advised by Dr. Gowtham Kaki. Currently, I am a consultant with <a href="https://www.microsoft.com/en-in/microsoft-cloud/solutions/industry">Industry Solutions, Microsoft</a> overseeing enterprise security. Before Microsoft, I completed my bachelor's in ECE at Shiv Nadar University, where I worked under <a href="https://cse.snu.edu.in/people/faculty/dr-sweta-mishra">Dr. Sweta Mishra</a>.</p><p>My intrests are <a href="https://en.wikipedia.org/wiki/Cryptography">cryptography</a>, <a href="https://en.wikipedia.org/wiki/Formal_methods">formal methods</a>, and verification.</p></div>
@@ -51,7 +30,14 @@ btn.addEventListener("change", function() {
 02/2025
 </div>
 <div class="news-right">
-I will be joining <a href="https://plv.colorado.edu/">CUPLV</a> as a Phd student in comming Fall!
+I will be joining <a href="https://plv.colorado.edu/">CUPLV</a> as a PhD student in the comming Fall!
+</div>
+</div><div class="news-item">
+<div class="news-left">
+06/2024
+</div>
+<div class="news-right">
+Our paper has been accepted into <a href="https://ieee-cybermatics.org/2024/blockchain/index.php">Blockchain 2024</a>!
 </div>
 </div></div>
 </div>
@@ -73,7 +59,7 @@ S. Mishra
 </div>
 </div>
 <div class="paper-icons">
-<a href="https://ieeexplore.ieee.org/document/10664417" alt="[PDF] "><img class="paper-icon" src="images/paper.png"/><img class="paper-icon-dark" src="images/paper-dark.png"/></a>
+<a href="https://ieeexplore.ieee.org/document/10664417" alt="[PDF] "><img class="paper-icon-dark" src="images/paper-dark.png"/></a>
 </div>
 </div>
 </div></div>
