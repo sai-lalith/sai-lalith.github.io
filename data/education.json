@@ -1,20 +1,8 @@
 [
     {
-        "year"        : "Ongoing",
-        "degree"      : "Ph.D. in Computer Science",
-        "note"        : "Advised by Sanjit A. Seshia",
-        "institution" : "University of California, Berkeley"
-    },
-    {
-        "year"        : "2018",
-        "degree"      : "M.Sc. in Computer Science",
-        "note"        : "Advised by Marsha Chechik",
-        "institution" : "University of Toronto"
-    },
-    {
-        "year"        : "2016",
-        "degree"      : "B.Sc. in Computer Science and Mathematics",
-        "note"        : "First Class Honours with Distinction",
-        "institution" : "Mount Allison University"
+        "year"        : "2023",
+        "degree"      : "B.Tech. in Electronics and Communication Engineering",
+        "note"        : "Minor in Computer Science",
+        "institution" : "Shiv Nadar University"
     }
 ]

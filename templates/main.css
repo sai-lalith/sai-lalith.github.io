@@ -105,10 +105,8 @@ h1,
 h2,
 h3 {
     font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-bottom: 0.25em;
-    margin-top: 1em;
-    font-size: larger;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 120%;
 }
 
 h1 {

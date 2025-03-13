@@ -1,9 +1,8 @@
 {
-    "Mount Allison University": "https://en.wikipedia.org/wiki/Mount_Allison_University",
-    "University of Toronto": "https://en.wikipedia.org/wiki/University_of_Toronto", 
-    "University of California, Berkeley": "https://en.wikipedia.org/wiki/University_of_California,_Berkeley",
+    "Shiv Nadar University": "https://snu.edu.in/home/",
 
-    "Marsha Chechik": "http://www.cs.toronto.edu/~chechik/",
+    "Gowtham Kaki": "https://gowthamk.github.io/",
+    "Sweta Mishra": "https://cse.snu.edu.in/people/faculty/dr-sweta-mishra",
     "Julia Rubin": "https://www.ece.ubc.ca/~mjulia/",
     "Yi Li": "https://personal.ntu.edu.sg/yi_li/",
     "Dmitry Blotsky": "http://dmitryblotsky.com/",
@@ -51,6 +50,7 @@
     "African-American periodicals" : "https://federicoaureliano.github.io/periodicals/",
     "using a sequence solver to answer StackOverflow questions about DNA": "./blog/seq.html",
 
+    "Blockchain '24": "https://ieee-cybermatics.org/2024/blockchain/index.php",
     "ASE '18" : "http://www.ase2018.com/",
     "CAV '18" : "http://cavconference.org/2018/",
     "SYNT '20" : "http://pl.cs.uchicago.edu/synt2020/",
