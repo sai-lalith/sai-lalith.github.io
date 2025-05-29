@@ -1,8 +1,4 @@
-# Federico's Academic Website
-
-Feel free to use this website generator. No need to ask for permission or to credit me on your site. If you do use it, I'd love to hear how it went :)
-
-**NOTE**: while I do not ask that you credit me on your site, please respect the software license in LICENSE.md.
+# My Academic Website
 
 ## Creating Your Website
 0. Install hatch (https://hatch.pypa.io/latest/).
