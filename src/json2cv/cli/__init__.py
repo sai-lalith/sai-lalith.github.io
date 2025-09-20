@@ -394,6 +394,8 @@ def json2cv(data, output, templates, verbosity, cv):
     def build_profile(profile: Dict[str, str]):
         profile_html = '<div class="profile">\n'
         profile_html += '<div class="title"><h1>%s</h1></div>\n' % meta_json["name"]
+        if "motto" in profile and profile["motto"] != "":
+            profile_html += '<div class="motto"><h2>%s</h2></div>\n' % profile["motto"]
 
         profile_html += '<div class="links"><h2>'
         if "cv" in profile and profile["cv"] != "":
